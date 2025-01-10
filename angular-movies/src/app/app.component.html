@@ -47,13 +47,15 @@
           <img [src]="movie.poster" />
         </div>
         <div>
-          {{$index +1}}). Movie: {{ movie.title | uppercase }}
-        </div>
-        <div>
-          Release Date: {{ movie.releaseDate | date:"MMMM-dd-yyyy" | uppercase }}
-        </div>
-        <div>
-          Revenue: {{ movie.revenue | currency }}
+          <div>
+            {{$index +1}}). Movie: {{ movie.title | uppercase }}
+          </div><br />
+          <div>
+            Release Date: {{ movie.releaseDate | date:"MMMM-dd-yyyy" | uppercase }}
+          </div>
+          <div>
+            Revenue: {{ movie.revenue | currency }}
+          </div>
         </div>
       </div>
       }
