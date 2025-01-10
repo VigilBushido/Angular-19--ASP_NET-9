@@ -48,11 +48,12 @@
         </div>
         <div>
           <div>
-            {{$index +1}}). Movie: {{ movie.title | uppercase }}
+            {{$index +1}}). Movie: <br /> {{ movie.title | uppercase }}
           </div><br />
           <div>
             Release Date: {{ movie.releaseDate | date:"MMMM-dd-yyyy" | uppercase }}
           </div>
+          <br />
           <div>
             Revenue: {{ movie.revenue | currency }}
           </div>
