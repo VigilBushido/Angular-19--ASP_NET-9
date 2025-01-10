@@ -1,4 +1,8 @@
 <main class="main">
+
+  <head>
+    <link rel="preconnect" href="https://www.themoviedb.org">
+  </head>
   <div class="content">
     <div class="left-side">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 982 239" fill="none" class="angular-logo">
@@ -44,7 +48,7 @@
       @for(movie of movies; track $index){
       <div class="movies-container">
         <div>
-          <img [ngSrc]="movie.poster" width="300" height="400" />
+          <img [ngSrc]="movie.poster" [priority]="$index === 0" width="300" height="400" />
         </div>
         <div>
           <div>
