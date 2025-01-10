@@ -28,7 +28,7 @@
       </svg>
 
       <h1>Starting ... <br />{{ title }}</h1>
-      <h2>Data of the movie</h2>
+      <h2>Data of the Movies</h2>
       <div>example:</div>
       <div>
         Movie: {{ single_movie.title | uppercase }}
@@ -44,7 +44,7 @@
       @for(movie of movies; track $index){
       <div class="movies-container">
         <div>
-          <img [src]="movie.poster" />
+          <img [ngSrc]="movie.poster" width="300" height="400" />
         </div>
         <div>
           <div>

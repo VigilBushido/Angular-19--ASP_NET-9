@@ -1,13 +1,9 @@
 .movies-container {
     border: 1px solid black;
-    margin-bottom: 1rem;
+    margin-bottom: 10rem;
     padding: 1rem;
     display: flex;
-    gap: 10px;
-}
-
-img {
-    max-width: 80%;
+    gap: 10px
 }
 
 
