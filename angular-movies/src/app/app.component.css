@@ -4,6 +4,11 @@
     padding: 1rem;
 }
 
+img {
+    max-width: 30%;
+    max-height: 30%
+}
+
 
 :host {
     --bright-blue: oklch(51.01% 0.274 263.83);

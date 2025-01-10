@@ -44,6 +44,9 @@
       @for(movie of movies; track $index){
       <div class="movies-container">
         <div>
+          <img [src]="movie.poster" />
+        </div>
+        <div>
           {{$index +1}}). Movie: {{ movie.title | uppercase }}
         </div>
         <div>
