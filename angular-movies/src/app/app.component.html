@@ -29,7 +29,7 @@
 
       <h1>Starting ... <br />{{ title }}</h1>
       <h2>Data of the movie</h2>
-
+      <div>example:</div>
       <div>
         Movie: {{ single_movie.title | uppercase }}
       </div>
@@ -37,7 +37,7 @@
         Release Date: {{ single_movie.releaseDate | date:"MMMM-dd-yyyy"}}
       </div>
       <div>
-        Price: {{ single_movie.price | currency }}
+        Revenue: {{ single_movie.revenue | currency }}
       </div>
       <br />
 
@@ -47,10 +47,10 @@
           {{$index +1}}). Movie: {{ movie.title | uppercase }}
         </div>
         <div>
-          Release Date: {{ movie.releaseDate | date:"MMMM-dd-yyyy"}}
+          Release Date: {{ movie.releaseDate | date:"MMMM-dd-yyyy" | uppercase }}
         </div>
         <div>
-          Price: {{ movie.price | currency }}
+          Revenue: {{ movie.revenue | currency }}
         </div>
       </div>
       }

@@ -11,30 +11,30 @@ import { RouterOutlet } from '@angular/router';
 export class AppComponent {
   title = 'angular-movies';
   single_movie = {
-    title: 'Castaway',
+    title: 'Cast Away',
     releaseDate: new Date(),
-    price: 1400.99
+    revenue: 429632142.00
   };
 
   movies = [{
-    title: 'Pursuit of Happiness',
+    title: 'The Pursuit of Happyness',
     releaseDate: new Date(),
-    price: 2200.99
+    revenue: 307077295.00
   },
   {
     title: 'Iron Man',
     releaseDate: new Date(),
-    price: 1700.99
+    revenue: 585174222.00
   },
   {
     title: 'Seven Pounds',
     releaseDate: new Date(),
-    price: 2800.99
+    revenue: 168167691.00
   },
   {
     title: 'A Beautiful Mind',
     releaseDate: new Date(),
-    price: 1999.99
+    revenue: 316800000.00
   }];
 
   duplicateNumber(value: number): number {
