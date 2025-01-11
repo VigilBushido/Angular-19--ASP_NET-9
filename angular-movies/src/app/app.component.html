@@ -33,8 +33,12 @@
 
       <h1>Starting ... <br />{{ title }}</h1><br />
 
-      @if (movies.length === 0){
+
+      @if (!movies){
+      <img src="https://miro.medium.com/max/882/1*9EBHIOzhE1XfMYoKz1JcsQ.gif" />
       <h2>Loading ... </h2>
+      } @else if (movies.length === 0){
+      <h2> There are no movies to display </h2>
       } @else {
       @for(movie of movies; track $index){
       <div class="movies-container">

@@ -16,7 +16,7 @@ export class AppComponent {
     revenue: 429632142.00
   };
 
-  movies: any[] = [];
+  movies: any[] | undefined;
 
   constructor() {
     setTimeout(() => {
