@@ -31,20 +31,11 @@
         </defs>
       </svg>
 
-      <h1>Starting ... <br />{{ title }}</h1>
-      <h2>Data of the Movies</h2>
-      <div>example:</div>
-      <div>
-        Movie: {{ single_movie.title | uppercase }}
-      </div>
-      <div>
-        Release Date: {{ single_movie.releaseDate | date:"MMMM-dd-yyyy"}}
-      </div>
-      <div>
-        Revenue: {{ single_movie.revenue | currency }}
-      </div>
-      <br />
+      <h1>Starting ... <br />{{ title }}</h1><br />
 
+      @if (movies.length === 0){
+      <h2>Loading ... </h2>
+      } @else {
       @for(movie of movies; track $index){
       <div class="movies-container">
         <div>
@@ -64,7 +55,7 @@
         </div>
       </div>
       }
-      <p>Angular app is running. 🎉</p>
+      }
 
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
