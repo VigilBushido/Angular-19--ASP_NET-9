@@ -10,11 +10,6 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'angular-movies';
-  single_movie = {
-    title: 'Cast Away',
-    releaseDate: new Date(),
-    revenue: 429632142.00
-  };
 
   movies: any[] | undefined;
 
@@ -43,6 +38,12 @@ export class AppComponent {
         releaseDate: new Date(),
         revenue: 316800000.00,
         poster: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rEIg5yJdNOt9fmX4P8gU9LeNoTQ.jpg'
+      },
+      {
+        title: 'Cast Away',
+        releaseDate: new Date(),
+        revenue: 429632142.00,
+        poster: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/7lLJgKnAicAcR5UEuo8xhSMj18w.jpg'
       }];
     }, 2000);
   }
