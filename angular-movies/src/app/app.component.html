@@ -32,35 +32,10 @@
       </svg>
 
       <h1>Starting ... <br />{{ title }}</h1><br />
-
-
-      @if (!movies){
-      <img src="loading.gif" />
-      <h2>Loading ... </h2>
-      } @else if (movies.length === 0){
-      <h2> There are no movies to display </h2>
-      } @else {
-      @for(movie of movies; track $index){
-      <div class="movies-container">
-        <div>
-          <img [ngSrc]="movie.poster" [priority]="$index === 0" width="300" height="400" />
-        </div>
-        <div>
-          <div>
-            {{$index +1}}). Movie: <br /> {{ movie.title | uppercase }}
-          </div><br />
-          <div>
-            Release Date: <br /> {{ movie.releaseDate | date:"MMMM-dd-yyyy" | uppercase }}
-          </div>
-          <br />
-          <div>
-            Revenue: {{ movie.revenue | currency }}
-          </div>
-        </div>
-      </div>
-      }
-      }
-
+      <h2>All Star Releases</h2>
+      <app-movies-list></app-movies-list>
+      <h2>Upcoming Releases</h2>
+      <app-movies-list></app-movies-list>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
