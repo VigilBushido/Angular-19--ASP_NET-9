@@ -33,9 +33,9 @@
 
       <h1>Starting ... <br />{{ title }}</h1><br />
       <h2>All Star Releases</h2>
-      <app-movies-list></app-movies-list>
+      <app-movies-list [movies]="topRatedMovies"></app-movies-list>
       <h2>Upcoming Releases</h2>
-      <app-movies-list></app-movies-list>
+      <app-movies-list [movies]="upcomingReleasesMovies"></app-movies-list>
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
