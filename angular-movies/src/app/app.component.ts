@@ -10,8 +10,6 @@ import { MoviesListComponent } from "./movies/movies-list/movies-list.component"
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular-movies';
-
   topRatedMovies: any[] | undefined;
   upcomingReleasesMovies: any[] | undefined;
 
