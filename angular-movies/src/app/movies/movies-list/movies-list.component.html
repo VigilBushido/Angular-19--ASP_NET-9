@@ -9,7 +9,11 @@
 @for(movie of movies; track $index){
 <div class="movies-container">
     <div>
+        @if(movie.poster){
         <img [src]="movie.poster" width="300" height="400" />
+        } @else {
+        <img src="default.jpg" width="300" height="400" />
+        }
     </div>
     <div>
         <div>
