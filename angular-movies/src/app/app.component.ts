@@ -10,8 +10,8 @@ import { MoviesListComponent } from "./movies/movies-list/movies-list.component"
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  topRatedMovies: any[] | undefined;
-  upcomingReleasesMovies: any[] | undefined;
+  topRatedMovies: any;
+  upcomingReleasesMovies: any;
 
   constructor() {
     setTimeout(() => {

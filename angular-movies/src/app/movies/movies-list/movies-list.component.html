@@ -1,3 +1,5 @@
+<button (click)="addMovie()">Add a movie</button>
+
 @if (!movies){
 <img src="loading.gif" />
 <h2>Loading ... </h2>
@@ -7,7 +9,7 @@
 @for(movie of movies; track $index){
 <div class="movies-container">
     <div>
-        <img [ngSrc]="movie.poster" [priority]="$index === 0" width="300" height="400" />
+        <img [src]="movie.poster" width="300" height="400" />
     </div>
     <div>
         <div>
