@@ -26,6 +26,9 @@
         <div>
             Revenue: {{ movie.revenue | currency }}
         </div>
+        <div>
+            <button (click)="removeMovie(movie)">Remove</button>
+        </div>
     </div>
 </div>
 }
