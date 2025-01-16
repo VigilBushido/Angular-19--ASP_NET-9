@@ -75,6 +75,6 @@ export class AppComponent {
           revenue: 0,
           poster: 'https://www.themoviedb.org/t/p/w1280/6gwjrSIeaAulBBCjw8GoqSL3Mst.jpg'
         }];
-    }, 2000);
+    }, 1500);
   }
 }
