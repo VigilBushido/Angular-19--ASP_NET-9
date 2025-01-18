@@ -30,7 +30,8 @@
           </clipPath>
         </defs>
       </svg>
-
+      <input type="file" style="display: none" #uploader>
+      <button (click)="uploader.click()">Upload file</button>
       <h2>Top Rated Releases</h2>
       <app-movies-list [movies]="topRatedMovies"></app-movies-list>
       <h2>Upcoming Releases</h2>
