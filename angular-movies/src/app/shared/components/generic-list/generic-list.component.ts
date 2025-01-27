@@ -8,5 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class GenericListComponent {
   @Input({ required: true })
-  elements: any;
+  elements!: any;
 }
