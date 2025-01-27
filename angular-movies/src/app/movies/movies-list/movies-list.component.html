@@ -1,6 +1,9 @@
 <button (click)="addMovie()">Add a movie</button>
 
 <app-generic-list [elements]="movies">
+    <ng-container empty>
+        <p style="color: red">There are no movies to display</p>
+    </ng-container>
     <ng-container content>
         @for(movie of movies; track $index){
         <div class="movies-container">
