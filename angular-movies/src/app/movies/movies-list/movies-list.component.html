@@ -1,4 +1,6 @@
-<button (click)="addMovie()">Add a movie</button>
+<button nz-button nzType="primary" nzShape="round" (click)="addMovie()">
+    <nz-icon nzType="plus" nzTheme="outline" />
+    Add a movie</button>
 
 <app-generic-list [elements]="movies">
     <ng-container empty>

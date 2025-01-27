@@ -1,10 +1,12 @@
 import { CurrencyPipe, DatePipe, NgOptimizedImage, UpperCasePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { GenericListComponent } from "../../shared/components/generic-list/generic-list.component";
+import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
   selector: 'app-movies-list',
-  imports: [DatePipe, UpperCasePipe, CurrencyPipe, GenericListComponent],
+  imports: [DatePipe, UpperCasePipe, CurrencyPipe, GenericListComponent, NzButtonModule, NzIconModule],
   templateUrl: './movies-list.component.html',
   styleUrl: './movies-list.component.css'
 })

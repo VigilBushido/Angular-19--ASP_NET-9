@@ -1,7 +1,11 @@
 @if (!elements){
+<span #loading><ng-content select="[loading]"></ng-content></span>
+@if (!loading.innerHTML.trim()){
 <div>
     <img src="loading.gif" />
 </div>
+}
+
 } @else if (elements.length === 0){
 <span #empty><ng-content select="[empty]"></ng-content></span>
 
@@ -12,5 +16,5 @@
 }
 
 } @else {
-<ng-content select="[content]"></ng-content>"
+<ng-content select="[content]"></ng-content>
 }
