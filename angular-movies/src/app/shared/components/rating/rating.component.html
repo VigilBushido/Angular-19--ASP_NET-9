@@ -1,4 +1,4 @@
 @for (item of maxRatingArray; track $index) {
-<nz-icon (mouseenter)="handleMouseEnter($index)" (mouseleave)="handleMouseLeave()"
+<nz-icon (mouseenter)="handleMouseEnter($index)" (mouseleave)="handleMouseLeave()" (click)="handleClick($index)"
     [ngClass]="{highlighted: selectedRating > $index}" nzType="star" nzTheme="fill" />
 }

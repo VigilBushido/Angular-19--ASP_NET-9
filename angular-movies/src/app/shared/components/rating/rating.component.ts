@@ -20,11 +20,22 @@ export class RatingComponent implements OnInit {
   @Input()
   selectedRating = 0;
 
+  clickedRating = 0;
+
   handleMouseEnter(index: number) {
     this.selectedRating = index + 1;
   }
 
   handleMouseLeave() {
-    this.selectedRating = 0;
+    if (this.clickedRating !== 0) {
+      this.selectedRating = this.clickedRating;
+    } else {
+      this.selectedRating = 0;
+    }
+  }
+
+  handleClick(index: number) {
+    this.selectedRating = index + 1;
+    this.clickedRating = this.selectedRating;
   }
 }
