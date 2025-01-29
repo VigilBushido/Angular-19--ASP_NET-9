@@ -1,0 +1,48 @@
+<ul nz-menu nzMode="horizontal">
+    <li nz-menu-item nzSelected>
+        <nz-icon nzType="mail" />
+        List of Movies
+    </li>
+    <li nz-menu-item nzDisabled>
+        <nz-icon nzType="appstore" />
+        List of Actors
+    </li>
+    <li nz-submenu nzTitle="Features - Submenu" nzIcon="setting">
+        <ul>
+            <li nz-menu-group nzTitle="Comparison of Revenue">
+                <ul>
+                    <li nz-menu-item>Option 1</li>
+                    <li nz-menu-item>Option 2</li>
+                </ul>
+            </li>
+            <li nz-menu-group nzTitle="Prediction of Ticket Sale in Box Office">
+                <ul>
+                    <li nz-menu-item>Option 3</li>
+                    <li nz-menu-item>Option 4</li>
+                    <li nz-submenu nzTitle="Sub Menu">
+                        <ul>
+                            <li nz-menu-item nzDisabled>Option 5</li>
+                            <li nz-menu-item>Option 6</li>
+                        </ul>
+                    </li>
+                    <li nz-submenu nzTitle="Click me" [nzTriggerSubMenuAction]="'click'">
+                        <ul>
+                            <li nz-menu-item nzDisabled>Option 5</li>
+                            <li nz-menu-item>Option 6</li>
+                        </ul>
+                    </li>
+                    <li nz-submenu nzDisabled nzTitle="Disabled Sub Menu">
+                        <ul>
+                            <li nz-menu-item>Option 5</li>
+                            <li nz-menu-item>Option 6</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+    <li nz-menu-item>
+        <a href="https://www.themoviedb.org/?language=en-US" target="_blank" rel="noopener noreferrer">Movies Database -
+            Link</a>
+    </li>
+</ul>
