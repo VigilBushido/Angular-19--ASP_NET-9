@@ -5,3 +5,10 @@
 button {
     margin-bottom: 12px;
 }
+
+.fixed-top {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+}
