@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 
 @Component({
@@ -8,17 +8,18 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
   templateUrl: './rating.component.html',
   styleUrl: './rating.component.css'
 })
-export class RatingComponent implements OnInit {
-  ngOnInit(): void {
-    this.maxRatingArray = Array(this.maxRating).fill(0);
-  }
-  @Input({ required: true })
-  maxRating!: number;
+export class RatingComponent {
+
+  @Input({ required: true, transform: (value: number) => Array(value).fill(0) })
+  maxRating!: any[];
 
   maxRatingArray: any[] = [];
 
   @Input()
   selectedRating = 0;
+
+  @Output()
+  rated = new EventEmitter<number>();
 
   clickedRating = 0;
 
@@ -37,5 +38,6 @@ export class RatingComponent implements OnInit {
   handleClick(index: number) {
     this.selectedRating = index + 1;
     this.clickedRating = this.selectedRating;
+    this.rated.emit(this.selectedRating);
   }
 }

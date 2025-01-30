@@ -79,4 +79,8 @@ export class AppComponent {
         }];
     }, 1500);
   }
+
+  processRating(rate: number) {
+    alert(`You rated the movie ${rate}`);
+  }
 }

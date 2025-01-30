@@ -1,7 +1,7 @@
 <!-- NG-ZORRO -->
 <app-menu></app-menu>
 
-<app-rating [maxRating]="5"></app-rating>
+<app-rating [maxRating]="5" (rated)="processRating($event)"></app-rating>
 <!-- <main class="main">
 
   <head>
