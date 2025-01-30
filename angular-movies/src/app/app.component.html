@@ -1,8 +1,8 @@
 <!-- NG-ZORRO -->
 <app-menu></app-menu>
 
-<app-rating [maxRating]="5" (rated)="processRating($event)"></app-rating>
-<!-- <main class="main">
+<!--  -->
+<main class="main">
 
   <head>
     <link rel="preconnect" href="https://www.themoviedb.org">
@@ -35,7 +35,8 @@
         </defs>
       </svg>
       <input type="file" style="display: none" #uploader>
-      <button (click)="uploader.click()">Upload file</button>
+      <button (click)="uploader.click()">Upload file</button><br />
+      <app-rating [maxRating]="5" (rated)="processRating($event)"></app-rating>
       <h2>Top Rated Releases</h2>
       <app-movies-list [movies]="topRatedMovies"></app-movies-list>
       <h2>Upcoming Releases</h2>
@@ -81,4 +82,4 @@
     </div>
   </div>
 </main>
-<router-outlet /> -->
+<router-outlet />

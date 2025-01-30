@@ -8,31 +8,38 @@
         <p style="color: red">There are no movies to display</p>
     </ng-container>
     <ng-container content>
-        @for(movie of movies; track $index){
         <div class="movies-container">
-            <div>
-                @if(movie.poster){
-                <img [src]="movie.poster" width="300" height="400" />
-                } @else {
-                <img src="default.jpg" width="300" height="400" />
-                }
+            @for(movie of movies; track $index){
+            <div class="movie-container">
+                <a>
+                    @if(movie.poster){
+                    <img [src]="movie.poster" width="169" height="250" />
+                    } @else {
+                    <img src="default.jpg" width="169" height="250" />
+                    }
+                </a>
+                <p>
+                    <a>
+                        {{ movie.title}}
+                    </a>
+                <h5>
+                    <button (click)="removeMovie(movie)">Remove</button>
+                    <br />
+                    Revenue: {{ movie.revenue | currency }}
+                    <br />
+                    Release Date: <br /> {{ movie.releaseDate | date:"MMMM-dd-yyyy" | uppercase }}
+                    <br />
+                    <app-rating [maxRating]="5" (rated)="processRating($event)"></app-rating>
+                </h5>
             </div>
-            <div>
-                <div>
+            }
+        </div>
+    </ng-container>
+</app-generic-list>
+
+<!--                 <div>
                     {{$index +1}}). Movie: <br /> {{ movie.title | uppercase }}
                 </div><br />
                 <div>
-                    Release Date: <br /> {{ movie.releaseDate | date:"MMMM-dd-yyyy" | uppercase }}
-                </div>
-                <br />
-                <div>
-                    Revenue: {{ movie.revenue | currency }}
-                </div>
-                <div>
-                    <button (click)="removeMovie(movie)">Remove</button>
-                </div>
-            </div>
-        </div>
-        }
-    </ng-container>
-</app-generic-list>
+                    
+                </div> -->
