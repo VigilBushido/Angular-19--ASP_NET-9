@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { RatingComponent } from "../shared/components/rating/rating.component";
 import { MoviesListComponent } from "../movies/movies-list/movies-list.component";
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'app-landing-page',
-  imports: [RatingComponent, MoviesListComponent],
+  imports: [RatingComponent, MoviesListComponent, NzIconModule, NzButtonModule],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })

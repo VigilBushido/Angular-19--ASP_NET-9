@@ -31,7 +31,8 @@
                 </defs>
             </svg>
             <input type="file" style="display: none" #uploader>
-            <button (click)="uploader.click()">Upload file</button><br />
+            <button nz-button nzType="primary" nzShape="round" (click)="uploader.click()"><nz-icon nzType="cloud-upload"
+                    nzTheme="outline" /> Upload File</button><br />
             <app-rating [maxRating]="5" (rated)="processRating($event)"></app-rating>
             <h2>Top Rated Releases</h2>
             <app-movies-list [movies]="topRatedMovies"></app-movies-list>
