@@ -1,11 +1,19 @@
 <ul nz-menu class="fixed-top" nzMode="horizontal">
     <li nz-menu-item nzSelected>
-        <nz-icon nzType="mail" />
-        List of Movies
+        <!-- <nz-icon nzType="mail" /> -->
+        <a routerLink="" nz-icon nzType="dashboard" nzTheme="twotone">
+            List of Movies
+        </a>
     </li>
     <li nz-menu-item nzDisabled>
-        <nz-icon nzType="appstore" />
+        <!-- <nz-icon nzType="appstore" /> -->
+        <nz-icon nzType="idcard" nzTheme="twotone" />
         List of Actors
+    </li>
+    <li nz-menu-item>
+        <a routerLink="genres" nz-icon routerLink="genres" nzType="diff" nzTheme="twotone">
+            Genres
+        </a>
     </li>
     <li nz-submenu nzTitle="Features - Submenu" nzIcon="setting">
         <ul>
