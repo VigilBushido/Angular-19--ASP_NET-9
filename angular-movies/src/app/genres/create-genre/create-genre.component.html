@@ -2,10 +2,31 @@
 
 <form [formGroup]="form" (submit)="saveChanges()">
 
+    <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired>Name</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..."
+            [nzErrorTip]="userErrorGenreMissing">
+            <input nz-input formControlName="name" placeholder="Enter in a new Genre here ..." />
+            <ng-template #userErrorGenreMissing let-control>
+                @if (control.errors?.['required']) {
+                Please input a genre!
+                }
+                @if (control.errors?.['duplicated']) {
+                The genre is redundant!
+                }
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
 
 
-    <button nz-button nzType="primary" nzShape="round" type="submit">
-        <nz-icon nzType="save" nzTheme="outline" />
-        Save Changes
-    </button>
+    <div>
+        <button nz-button nzType="primary" nzShape="round" type="submit">
+            <nz-icon nzType="save" nzTheme="outline" />
+            Save Changes
+        </button>
+        <a routerLink="/genres">
+            <button nz-button nzType="default" nzShape="round"><nz-icon nzType="stop" nzTheme="outline" />Cancel
+            </button>
+        </a>
+    </div>
 </form>
