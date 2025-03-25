@@ -19,8 +19,8 @@
     </nz-form-item>
 
 
-    <div>
-        <button nz-button nzType="primary" nzShape="round" type="submit">
+    <div class="buttons-container">
+        <button [disabled]="form.invalid" nz-button nzType="primary" nzShape="round" type="submit">
             <nz-icon nzType="save" nzTheme="outline" />
             Save Changes
         </button>

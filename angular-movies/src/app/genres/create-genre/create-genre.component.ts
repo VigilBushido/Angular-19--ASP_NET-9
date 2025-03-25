@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
@@ -18,7 +18,7 @@ export class CreateGenreComponent {
   private formBuilder = inject(FormBuilder);
 
   form = this.formBuilder.group({
-    name: ['']
+    name: ['', { validators: [Validators.required] }]
   });
 
   saveChanges() {
