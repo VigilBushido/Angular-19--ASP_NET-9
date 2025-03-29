@@ -14,6 +14,9 @@
                 @if (control.errors?.['duplicated']) {
                 The genre is redundant!
                 }
+                @if (control.errors?.['firstLetterShouldBeUppercase']){
+                The first letter has to be upper case!
+                }
             </ng-template>
         </nz-form-control>
     </nz-form-item>

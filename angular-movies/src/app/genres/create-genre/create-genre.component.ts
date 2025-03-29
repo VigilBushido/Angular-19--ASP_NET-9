@@ -5,6 +5,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
+import { firstLetterShouldBeUpperCase } from '../../shared/functions/validations';
 
 @Component({
   selector: 'app-create-genre',
@@ -18,7 +19,7 @@ export class CreateGenreComponent {
   private formBuilder = inject(FormBuilder);
 
   form = this.formBuilder.group({
-    name: ['', { validators: [Validators.required] }]
+    name: ['', { validators: [Validators.required, firstLetterShouldBeUpperCase()] }]
   });
 
   saveChanges() {
