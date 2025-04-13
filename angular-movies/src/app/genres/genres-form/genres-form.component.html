@@ -1,1 +1,35 @@
-<p>genres-form works!</p>
+<h2>Create Genre</h2>
+
+<form nz-form [formGroup]="form" (submit)="saveChanges()">
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired>Name</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..."
+            [nzErrorTip]="userErrorGenreMissing">
+            <input nz-input formControlName="name" placeholder="Enter in a new Genre here ..." />
+            <ng-template #userErrorGenreMissing let-control>
+                @if (control.errors?.['required']) {
+                Please input a genre!
+                }
+                @if (control.errors?.['duplicated']) {
+                The genre is redundant!
+                }
+                @if (control.errors?.['firstLetterShouldBeUppercase']){
+                The first letter has to be upper case!
+                }
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+
+
+    <div class="buttons-container">
+        <button [disabled]="form.invalid" nz-button nzType="primary" nzShape="round" type="submit">
+            <nz-icon nzType="save" nzTheme="outline" />
+            Save Changes
+        </button>
+        <a routerLink="/genres">
+            <button nz-button nzType="default" nzShape="round"><nz-icon nzType="stop" nzTheme="outline" />Cancel
+            </button>
+        </a>
+    </div>
+</form>
