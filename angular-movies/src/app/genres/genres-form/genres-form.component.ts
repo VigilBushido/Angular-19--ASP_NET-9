@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { firstLetterShouldBeUpperCase } from '../../shared/functions/validations';
@@ -14,7 +14,7 @@ import { GenreCreationDTO, GenreReadDTO } from '../genres.models';
   templateUrl: './genres-form.component.html',
   styleUrl: './genres-form.component.css'
 })
-export class GenresFormComponent {
+export class GenresFormComponent implements OnInit {
 
   private formBuilder = inject(FormBuilder);
 
@@ -26,6 +26,12 @@ export class GenresFormComponent {
 
   @Output()
   postForm = new EventEmitter<GenreCreationDTO>;
+
+  ngOnInit(): void {
+    if (this.model !== undefined) {
+      this.form.patchValue(this.model);
+    }
+  }
 
   saveChanges() {
     // .. save changes
