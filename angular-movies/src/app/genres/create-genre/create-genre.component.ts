@@ -5,26 +5,23 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { firstLetterShouldBeUpperCase } from '../../shared/functions/validations';
+import { GenreCreationDTO } from '../genres.models';
+import { GenresFormComponent } from "../genres-form/genres-form.component";
+
 
 @Component({
   selector: 'app-create-genre',
-  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, RouterLink],
+  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, GenresFormComponent],
   templateUrl: './create-genre.component.html',
   styleUrl: './create-genre.component.css'
 })
 export class CreateGenreComponent {
 
   router = inject(Router);
-  private formBuilder = inject(FormBuilder);
 
-  form = this.formBuilder.group({
-    name: ['', { validators: [Validators.required, firstLetterShouldBeUpperCase()] }]
-  });
-
-  saveChanges() {
-    console.log(this.form.value);
+  saveChanges(genre: GenreCreationDTO) {
     //.. save changes
+    console.log(genre); // later will persist data 
     this.router.navigate(['/genres']);
 
   }
