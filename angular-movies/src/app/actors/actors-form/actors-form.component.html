@@ -1,1 +1,7 @@
-<p>actors-form works!</p>
+<form nz-form [formGroup]="form" (submit)="saveChanges()">
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired>Name</nz-form-label>
+    </nz-form-item>
+
+</form>
