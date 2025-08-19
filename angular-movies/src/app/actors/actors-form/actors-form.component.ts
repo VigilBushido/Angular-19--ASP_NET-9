@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActorCreationDTO, ActorDTO } from '../actors.model';
 import { RouterLink } from '@angular/router';
@@ -16,15 +16,25 @@ import { getISOWeek } from 'date-fns';
   styleUrl: './actors-form.component.css'
 })
 export class ActorsFormComponent implements OnInit {
-  date = null;
-  rangeDate = null;
+
+  @ViewChild('datePickerInput') datePickerInput: any;
+
+  closeDatePicker(event: any) {
+    // You can also add logic here to handle the selected date (event)
+    // this.form.controls.dateOfBirth.setValue(event);
+    this.datePickerInput.blur();
+  }
 
   onChange(result: Date): void {
     console.log('onChange: ', result);
   }
 
-  getWeek(result: Date): void {
-    console.log('week: ', getISOWeek(result));
+  selectedDate: Date | null = null;
+  // isDatePickerOpen = true;
+
+  onDateSelect(date: Date): void {
+    this.selectedDate = date;
+    // this.isDatePickerOpen = false;
   }
 
   private formBuilder = inject(FormBuilder);

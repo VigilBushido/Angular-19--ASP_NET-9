@@ -1,16 +1,17 @@
 import { Routes } from '@angular/router';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { IndexGenresComponent } from './genres/index-genres/index-genres.component';
-import { CreateGenreComponent } from './genres/create-genre/create-genre.component';
+import { IndexTheatersComponent } from './theaters/index-theaters/index-theaters.component';
+import { IndexActorsComponent } from './actors/index-actors/index-actors.component';
 import { CreateMovieComponent } from './movies/create-movie/create-movie.component';
+import { CreateGenreComponent } from './genres/create-genre/create-genre.component';
 import { CreateTheaterComponent } from './theaters/create-theater/create-theater.component';
 import { CreateActorComponent } from './actors/create-actor/create-actor.component';
-import { IndexActorsComponent } from './actors/index-actors/index-actors.component';
-import { IndexTheatersComponent } from './theaters/index-theaters/index-theaters.component';
 import { EditMovieComponent } from './movies/edit-movie/edit-movie.component';
 import { EditGenreComponent } from './genres/edit-genre/edit-genre.component';
-import { EditActorComponent } from './actors/edit-actor/edit-actor.component';
 import { EditTheaterComponent } from './theaters/edit-theater/edit-theater.component';
+import { EditActorComponent } from './actors/edit-actor/edit-actor.component';
+
 
 export const routes: Routes = [
     { path: '', component: LandingPageComponent },

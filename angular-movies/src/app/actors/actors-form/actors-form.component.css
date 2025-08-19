@@ -11,3 +11,7 @@ button {
 .buttons-container {
     margin-top: 1rem;
 }
+
+nz-date-picker {
+    margin: 0 8px 12px 0;
+}
