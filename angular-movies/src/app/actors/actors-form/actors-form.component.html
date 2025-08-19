@@ -1,7 +1,25 @@
 <form nz-form [formGroup]="form" (submit)="saveChanges()">
 
     <nz-form-item>
-        <nz-form-label [nzSpan]="7" nzRequired>Name</nz-form-label>
+        <nz-form-label [nzSpan]="7" nzRequired>ActorName</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..."
+            [nzErrorTip]="userErrorActorMissing">
+            <input nz-input formControlName="ActorName" placeholder="Enter in a new Actor here ..." />
+            <ng-template #userErrorActorMissing let-control>
+                @if (control.errors?.['required']) {
+                Please input a actor name!
+                }
+                @if (control.errors?.['duplicated']) {
+                The actor is redundant!
+                }
+                @if (control.errors?.['firstLetterShouldBeUppercase']){
+                The first letter has to be upper case!
+                }
+            </ng-template>
+        </nz-form-control>
     </nz-form-item>
-
+    <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired>Date of Birth</nz-form-label>
+        <nz-date-picker nzInline [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+    </nz-form-item>
 </form>

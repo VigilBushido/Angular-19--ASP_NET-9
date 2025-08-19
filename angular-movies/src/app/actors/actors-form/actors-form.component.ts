@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, inject } from '@angular/core';
-import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActorCreationDTO, ActorDTO } from '../actors.model';
 import { RouterLink } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -7,14 +7,25 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { getISOWeek } from 'date-fns';
 
 @Component({
   selector: 'app-actors-form',
-  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, RouterLink, NzDatePickerModule],
+  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzDatePickerModule, FormsModule],
   templateUrl: './actors-form.component.html',
   styleUrl: './actors-form.component.css'
 })
 export class ActorsFormComponent implements OnInit {
+  date = null;
+  rangeDate = null;
+
+  onChange(result: Date): void {
+    console.log('onChange: ', result);
+  }
+
+  getWeek(result: Date): void {
+    console.log('week: ', getISOWeek(result));
+  }
 
   private formBuilder = inject(FormBuilder);
 
