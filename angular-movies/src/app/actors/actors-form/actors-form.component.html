@@ -30,4 +30,17 @@
             (nzOpenChange)="nzDisableDatePicker($event)"></nz-date-picker> -->
         </nz-form-control>
     </nz-form-item>
+
+    <app-input-img title="Actor's Picture"></app-input-img>
+
+    <div class="buttons-container">
+        <button [disabled]="form.invalid" nz-button nzType="primary" nzShape="round" type="submit">
+            <nz-icon nzType="save" nzTheme="outline" />
+            Save Changes
+        </button>
+        <a routerLink="/actors">
+            <button nz-button nzType="default" nzShape="round"><nz-icon nzType="stop" nzTheme="outline" />Cancel
+            </button>
+        </a>
+    </div>
 </form>

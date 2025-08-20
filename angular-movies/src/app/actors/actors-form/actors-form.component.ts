@@ -7,10 +7,11 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { dateCannotBeInTheFuture } from '../../shared/functions/validations';
+import { InputImgComponent } from "../../shared/components/input-img/input-img.component";
 
 @Component({
   selector: 'app-actors-form',
-  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzDatePickerModule, FormsModule],
+  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzDatePickerModule, FormsModule, InputImgComponent],
   templateUrl: './actors-form.component.html',
   styleUrl: './actors-form.component.css'
 })
