@@ -6,6 +6,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { dateCannotBeInTheFuture } from '../../shared/functions/validations';
 
 @Component({
   selector: 'app-actors-form',
@@ -19,6 +20,7 @@ export class ActorsFormComponent implements OnInit {
 
   closeDatePicker(event: any) {
     // You can also add logic here to handle the selected date (event)
+    console.log('Selected date:', event);
     // this.form.controls.dateOfBirth.setValue(event);
     this.datePickerInput.blur();
   }
@@ -30,8 +32,12 @@ export class ActorsFormComponent implements OnInit {
   selectedDate: Date | null = null;
   // isDatePickerOpen = true;
 
-  onDateSelect(date: Date): void {
+  onDateSelect(event: any): void {
+    // Handle the date change event
+    const date = event as Date | null;
     this.selectedDate = date;
+    console.log('Selected date:', this.selectedDate);
+    console.log('Form value:', this.form.controls.dateOfBirth.value);
     // this.isDatePickerOpen = false;
   }
 
@@ -39,7 +45,7 @@ export class ActorsFormComponent implements OnInit {
 
   form = this.formBuilder.group({
     name: ['', { validators: [Validators.required] }],
-    dateOfBirth: new FormControl<Date | null>(null)
+    dateOfBirth: new FormControl<Date | null>(null, { validators: [Validators.required, dateCannotBeInTheFuture()] })
   });
 
   @Input()
@@ -52,6 +58,12 @@ export class ActorsFormComponent implements OnInit {
     if (this.model !== undefined) {
       this.form.patchValue(this.model);
     }
+
+    // Listen to form control value changes
+    this.form.controls.dateOfBirth.valueChanges.subscribe(value => {
+      console.log('Date of birth changed:', value);
+      this.selectedDate = value;
+    });
   }
 
   getErrorMessagesForName(): string {
@@ -59,6 +71,20 @@ export class ActorsFormComponent implements OnInit {
 
     if (field.hasError('required')) {
       return "The name field is required";
+    }
+
+    return "";
+  }
+
+  getErrorMessagesForDateOfBirth(): string {
+    let field = this.form.controls.dateOfBirth;
+
+    if (field.hasError('required')) {
+      return "The date of birth field is required";
+    }
+
+    if (field.hasError('dateCannotBeInTheFuture')) {
+      return field.getError('dateCannotBeInTheFuture').message;
     }
 
     return "";

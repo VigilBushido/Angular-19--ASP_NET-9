@@ -21,10 +21,13 @@
     </nz-form-item>
     <nz-form-item>
         <nz-form-label For="dateOfBirth" [nzSpan]="7" nzRequired>Date ofBirth</nz-form-label>
-        <nz-date-picker nzFormat="yyyy-MM-dd" (ngModelChange)="closeDatePicker($event)"
-            #datePickerInput></nz-date-picker>
-        <!-- <nz-date-picker id="dateOfBirth" [nzPlaceHolder]="Select a date"
+        <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..."
+            [nzErrorTip]="getErrorMessagesForDateOfBirth()">
+            <nz-date-picker nzFormat="yyyy-MM-dd" formControlName="dateOfBirth" #datePickerInput
+                (nzOnChange)="onDateSelect($event)"></nz-date-picker>
+            <!-- <nz-date-picker id="dateOfBirth" [nzPlaceHolder]="Select a date"
             (ngModelChange)="onDateSelect($event)" nzInline [nzOpen]="isDatePickerOpen"
             (nzOpenChange)="nzDisableDatePicker($event)"></nz-date-picker> -->
+        </nz-form-control>
     </nz-form-item>
 </form>
