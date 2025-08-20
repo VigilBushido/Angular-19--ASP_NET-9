@@ -1,13 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output, inject, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActorCreationDTO, ActorDTO } from '../actors.model';
-import { RouterLink } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
-import { getISOWeek } from 'date-fns';
 
 @Component({
   selector: 'app-actors-form',

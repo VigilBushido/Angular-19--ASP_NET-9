@@ -8,7 +8,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
   selector: 'app-landing-page',
   imports: [RatingComponent, MoviesListComponent, NzIconModule, NzButtonModule],
   templateUrl: './landing-page.component.html',
-  styleUrl: './landing-page.component.css'
+  styleUrl: './landing-page.component.css',
 })
 export class LandingPageComponent {
   topRatedMovies: any;
