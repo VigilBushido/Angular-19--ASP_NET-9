@@ -31,7 +31,7 @@
         </nz-form-control>
     </nz-form-item>
 
-    <app-input-img title="Actor's Picture"></app-input-img>
+    <app-input-img title="Actor's Picture" (selectedFile)="handleFileSelection($event)"></app-input-img>
 
     <div class="buttons-container">
         <button [disabled]="form.invalid" nz-button nzType="primary" nzShape="round" type="submit">

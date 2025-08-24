@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { toBase64 } from '../../functions/toBase64';
 
@@ -15,6 +15,9 @@ export class InputImgComponent {
 
   imageBase64?: string; // can be undefined
 
+  @Output()
+  selectedFile = new EventEmitter<File>();
+
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
 
@@ -23,6 +26,8 @@ export class InputImgComponent {
       console.log('File selected:', file);
       toBase64(file).then((value: string) => this.imageBase64 = value)
         .catch(error => console.log(error));
+
+      this.selectedFile.emit(file);
     }
   }
 }
