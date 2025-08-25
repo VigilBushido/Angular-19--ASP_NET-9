@@ -98,6 +98,10 @@ export class ActorsFormComponent implements OnInit {
 
   saveChanges() {
     const actor = this.form.value as ActorCreationDTO;
+
+    if (typeof actor.picture === 'string') {
+      actor.picture = undefined;
+    }
     this.postForm.emit(actor);
   }
 

@@ -8,5 +8,5 @@ export interface ActorDTO {
 export interface ActorCreationDTO {
     name: string;
     dateOfBirth: Date;
-    picutre?: File;
+    picture?: File;
 }
