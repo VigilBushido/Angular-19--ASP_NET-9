@@ -1,0 +1,23 @@
+<form nz-form [formGroup]="form" (submit)="saveChanges()">
+
+    <nz-form-item>
+        <nz-form-label nzFor="name" [nzSpan]="7" nzRequired>Theater Name</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating...">
+            <input id="name" nz-input formControlName="name" autocomplete="name">
+        </nz-form-control>
+    </nz-form-item>
+
+    <h4> Select the location of the movie theater:</h4>
+    <app-map></app-map>
+
+    <div class="buttons-container">
+        <button nz-button nzType="primary" nzShape="round" type="submit">
+            <nz-icon nzType="save" nzTheme="outline" />
+            Save Changes
+        </button>
+        <a routerLink="/actors">
+            <button nz-button nzType="default" nzShape="round"><nz-icon nzType="stop" nzTheme="outline" />Cancel
+            </button>
+        </a>
+    </div>
+</form>
