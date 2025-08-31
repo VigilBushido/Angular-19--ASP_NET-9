@@ -1,5 +1,6 @@
 import { Component, Input, numberAttribute } from '@angular/core';
 import { TheatersFormComponent } from "../theaters-form/theaters-form.component";
+import { TheaterCreationDTO } from '../theaters.models';
 
 @Component({
   selector: 'app-create-theater',
@@ -8,8 +9,8 @@ import { TheatersFormComponent } from "../theaters-form/theaters-form.component"
   styleUrl: './create-theater.component.css'
 })
 export class CreateTheaterComponent {
-  saveChanges($event: Event) {
-    throw new Error('Method not implemented.');
+  saveChanges(theater: TheaterCreationDTO) {
+    console.log('creating the theater', theater);
   }
 
   @Input({ transform: numberAttribute })
