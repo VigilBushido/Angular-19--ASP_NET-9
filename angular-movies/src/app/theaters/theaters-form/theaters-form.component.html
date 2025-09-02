@@ -3,7 +3,13 @@
     <nz-form-item>
         <nz-form-label nzFor="name" [nzSpan]="7" nzRequired>Theater Name</nz-form-label>
         <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating...">
-            <input id="name" nz-input formControlName="name" autocomplete="name">
+            <input id="name" nz-input formControlName="name" autocomplete="name"
+                placeholder="Enter new Theater name here ..." />
+            <ng-template #userErrorActorMissing let-control>
+                @if (control.errors?.['required']) {
+                Please input a theater name!
+                }
+            </ng-template>
         </nz-form-control>
     </nz-form-item>
 
@@ -11,7 +17,7 @@
     <app-map></app-map>
 
     <div class="buttons-container">
-        <button nz-button nzType="primary" nzShape="round" type="submit">
+        <button [disabled]="form.invalid" nz-button nzType="primary" nzShape="round" type="submit">
             <nz-icon nzType="save" nzTheme="outline" />
             Save Changes
         </button>
