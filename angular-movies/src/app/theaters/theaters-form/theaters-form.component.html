@@ -14,9 +14,9 @@
     </nz-form-item>
 
     <h4> Select the location of the movie theater:</h4>
-    <app-map></app-map>
+    <app-map (coordinatesSelected)="handleCoordinateSelection($event)"></app-map>
 
-    <div class="buttons-container">
+    <div class=" buttons-container">
         <button [disabled]="form.invalid" nz-button nzType="primary" nzShape="round" type="submit">
             <nz-icon nzType="save" nzTheme="outline" />
             Save Changes

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { icon, latLng, LeafletMouseEvent, marker, Marker, tileLayer } from 'leaflet';
 import { LeafletModule } from '@bluehalo/ngx-leaflet';
+import { Coordinate } from './Coordinate.model';
 
 @Component({
   selector: 'app-map',
@@ -9,6 +10,9 @@ import { LeafletModule } from '@bluehalo/ngx-leaflet';
   styleUrl: './map.component.css',
 })
 export class MapComponent {
+
+  @Output()
+  coordinatesSelected = new EventEmitter<Coordinate>();
 
   markersOptions = {
     icon: icon({
@@ -38,7 +42,7 @@ export class MapComponent {
     console.log(latitude, longitude);
 
     this.layers = [];
-    this.layers.push(marker([latitude, longitude], this.markersOptions)
-    );
+    this.layers.push(marker([latitude, longitude], this.markersOptions));
+    this.coordinatesSelected.emit({ latitude, longitude });
   }
 }

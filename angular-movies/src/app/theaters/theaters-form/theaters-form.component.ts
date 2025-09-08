@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { NzFormModule } from "ng-zorro-antd/form";
 import { NzButtonModule } from "ng-zorro-antd/button";
@@ -7,6 +7,7 @@ import { NzInputModule } from "ng-zorro-antd/input";
 import { NzIconModule } from "ng-zorro-antd/icon";
 import { MapComponent } from "../../shared/components/map/map.component";
 import { TheaterCreationDTO, TheaterDTO } from '../theaters.models';
+import { Coordinate } from '../../shared/components/map/Coordinate.model';
 
 @Component({
   selector: 'app-theaters-form',
@@ -25,7 +26,8 @@ export class TheatersFormComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
 
   form = this.formBuilder.group({
-    name: ['', { validators: [Validators.required] }]
+    name: ['', { validators: [Validators.required] }],
+    coordinate: new FormControl<Coordinate | null>(null, { validators: [Validators.required] })
   });
 
   ngOnInit(): void {
@@ -42,6 +44,10 @@ export class TheatersFormComponent implements OnInit {
     }
 
     return "";
+  }
+
+  handleCoordinateSelection(coordinate: Coordinate) {
+    this.form.controls.coordinate.setValue(coordinate);
   }
 
   saveChanges() {
