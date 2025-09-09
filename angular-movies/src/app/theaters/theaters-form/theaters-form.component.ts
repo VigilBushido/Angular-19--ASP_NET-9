@@ -52,6 +52,8 @@ export class TheatersFormComponent implements OnInit {
 
   saveChanges() {
     const theater = this.form.value as TheaterCreationDTO;
+    theater.latitude = this.form.controls.coordinate.value?.latitude as number;
+    theater.longitude = this.form.controls.coordinate.value?.longitude as number;
     this.postForm.emit(theater);
   }
 }
