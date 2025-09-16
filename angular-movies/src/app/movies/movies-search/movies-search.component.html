@@ -1,1 +1,12 @@
-<p>movies-search works!</p>
+<h2>Search for Movies</h2>
+
+<form nz-form [formGroup]="form">
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="7">Title</nz-form-label>
+        <nz-form-control [nzSpan]="12">
+            <input nz-input formControlName="title" placeholder="Enter in a movie title here ..." />
+        </nz-form-control>
+    </nz-form-item>
+
+</form>
