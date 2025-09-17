@@ -9,4 +9,10 @@
         </nz-form-control>
     </nz-form-item>
 
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a genre" [(ngModel)]="selectedValue">
+        <nz-option nzLabel="Action" nzValue="0"></nz-option>
+        <nz-option nzLabel="Comedy" nzValue="1"></nz-option>
+        <nz-option nzLabel="Drama" nzValue="2"></nz-option>
+    </nz-select>
+
 </form>

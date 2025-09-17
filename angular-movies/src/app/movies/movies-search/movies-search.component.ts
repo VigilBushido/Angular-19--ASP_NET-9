@@ -1,12 +1,13 @@
 import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzColDirective } from "ng-zorro-antd/grid";
 import { NzFormItemComponent, NzFormLabelComponent, NzFormControlComponent } from "ng-zorro-antd/form";
 import { NzInputModule } from "ng-zorro-antd/input";
+import { NzSelectModule } from 'ng-zorro-antd/select';
 
 @Component({
   selector: 'app-movies-search',
-  imports: [ReactiveFormsModule, NzColDirective, NzFormItemComponent, NzFormLabelComponent, NzFormControlComponent, NzInputModule],
+  imports: [FormsModule, ReactiveFormsModule, NzColDirective, NzFormItemComponent, NzFormLabelComponent, NzFormControlComponent, NzInputModule, NzSelectModule],
   templateUrl: './movies-search.component.html',
   styleUrl: './movies-search.component.css'
 })
@@ -20,5 +21,7 @@ export class MoviesSearchComponent {
     upcomingReleases: false,
     inTheaters: false
   });
+
+  selectedValue = null;
 
 }
