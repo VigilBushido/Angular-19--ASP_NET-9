@@ -4,6 +4,7 @@ import { NzColDirective } from "ng-zorro-antd/grid";
 import { NzFormItemComponent, NzFormLabelComponent, NzFormControlComponent } from "ng-zorro-antd/form";
 import { NzInputModule } from "ng-zorro-antd/input";
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { GenreReadDTO } from '../../genres/genres.models';
 
 @Component({
   selector: 'app-movies-search',
@@ -23,5 +24,9 @@ export class MoviesSearchComponent {
   });
 
   selectedValue = null;
+  genres: GenreReadDTO[] = [
+    { id: 1, name: 'Action' },
+    { id: 2, name: 'Comedy' },
+    { id: 3, name: 'Drama' }];
 
 }
