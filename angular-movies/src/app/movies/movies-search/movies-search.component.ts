@@ -5,10 +5,11 @@ import { NzFormItemComponent, NzFormLabelComponent, NzFormControlComponent } fro
 import { NzInputModule } from "ng-zorro-antd/input";
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { GenreReadDTO } from '../../genres/genres.models';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
 @Component({
   selector: 'app-movies-search',
-  imports: [FormsModule, ReactiveFormsModule, NzColDirective, NzFormItemComponent, NzFormLabelComponent, NzFormControlComponent, NzInputModule, NzSelectModule],
+  imports: [FormsModule, ReactiveFormsModule, NzColDirective, NzFormItemComponent, NzFormLabelComponent, NzFormControlComponent, NzInputModule, NzSelectModule, NzCheckboxModule],
   templateUrl: './movies-search.component.html',
   styleUrl: './movies-search.component.css'
 })
@@ -29,4 +30,5 @@ export class MoviesSearchComponent {
     { id: 2, name: 'Comedy' },
     { id: 3, name: 'Drama' }];
 
+  checked = false;
 }
