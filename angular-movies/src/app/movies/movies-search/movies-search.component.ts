@@ -30,5 +30,13 @@ export class MoviesSearchComponent {
     { id: 2, name: 'Comedy' },
     { id: 3, name: 'Drama' }];
 
+  clear() {
+    this.form.patchValue({
+      title: '',
+      genreId: 0,
+      upcomingReleases: false,
+      inTheaters: false
+    });
+  }
   checked = false;
 }
