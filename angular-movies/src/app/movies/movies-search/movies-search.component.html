@@ -9,7 +9,7 @@
         </nz-form-control>
     </nz-form-item>
 
-    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a genre" [(ngModel)]="selectedValue">
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a genre" [formControl]="form.controls.genreId">
         @for (genre of genres; track genre.id) {
         <nz-option [nzLabel]="genre.name" [nzValue]="genre.id"></nz-option>
         }
@@ -18,15 +18,15 @@
         <nz-option nzLabel="Drama" nzValue="2"></nz-option> -->
     </nz-select>
     <div>
-        <label nz-checkbox [(ngModel)]="checked">Upcoming Releases</label>
+        <label nz-checkbox [formControl]="form.controls.upcomingReleases">Upcoming Releases</label>
     </div>
 
     <div>
-        <label nz-checkbox [(ngModel)]="checked">In Theaters</label>
+        <label nz-checkbox [formControl]="form.controls.inTheaters">In Theaters</label>
     </div>
 
     <div class="container-clear">
-        <button nz-button nzType="primary" nzShape="round" (click)="clear()">
+        <button nz-button nzType="primary" nzShape="round" (click)="clear()" color="red">
             Clear
         </button>
     </div>

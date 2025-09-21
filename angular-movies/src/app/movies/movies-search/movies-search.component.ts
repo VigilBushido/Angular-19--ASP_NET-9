@@ -24,7 +24,6 @@ export class MoviesSearchComponent {
     inTheaters: false
   });
 
-  selectedValue = null;
   genres: GenreReadDTO[] = [
     { id: 1, name: 'Action' },
     { id: 2, name: 'Comedy' },
@@ -38,5 +37,5 @@ export class MoviesSearchComponent {
       inTheaters: false
     });
   }
-  checked = false;
+
 }
