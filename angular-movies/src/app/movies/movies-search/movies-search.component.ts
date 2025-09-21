@@ -6,10 +6,11 @@ import { NzInputModule } from "ng-zorro-antd/input";
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { GenreReadDTO } from '../../genres/genres.models';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
+import { NzButtonComponent } from 'ng-zorro-antd/button';
 
 @Component({
   selector: 'app-movies-search',
-  imports: [FormsModule, ReactiveFormsModule, NzColDirective, NzFormItemComponent, NzFormLabelComponent, NzFormControlComponent, NzInputModule, NzSelectModule, NzCheckboxModule],
+  imports: [FormsModule, ReactiveFormsModule, NzColDirective, NzFormItemComponent, NzFormLabelComponent, NzFormControlComponent, NzInputModule, NzSelectModule, NzCheckboxModule, NzButtonComponent],
   templateUrl: './movies-search.component.html',
   styleUrl: './movies-search.component.css'
 })
