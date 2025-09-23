@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzColDirective } from "ng-zorro-antd/grid";
 import { NzFormItemComponent, NzFormLabelComponent, NzFormControlComponent } from "ng-zorro-antd/form";
@@ -15,7 +15,13 @@ import { MoviesListComponent } from '../movies-list/movies-list.component';
   templateUrl: './movies-search.component.html',
   styleUrl: './movies-search.component.css'
 })
-export class MoviesSearchComponent {
+export class MoviesSearchComponent implements OnInit {
+
+  ngOnInit(): void {
+    this.form.valueChanges.subscribe(values => {
+      console.log(values);
+    });
+  }
 
   private formBuilder = inject(FormBuilder);
 
