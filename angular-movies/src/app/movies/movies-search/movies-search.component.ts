@@ -8,6 +8,7 @@ import { GenreReadDTO } from '../../genres/genres.models';
 import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzButtonComponent } from 'ng-zorro-antd/button';
 import { MoviesListComponent } from '../movies-list/movies-list.component';
+import { MoviesSearchDTO } from './movies-search.models';
 
 @Component({
   selector: 'app-movies-search',
@@ -19,8 +20,15 @@ export class MoviesSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.form.valueChanges.subscribe(values => {
-      console.log(values);
+      this.movies = this.moviesOriginal;
+      //console.log(values);
     });
+  }
+
+  filterMovies(values: MoviesSearchDTO) {
+    if (values.title) {
+      this.movies = this.movies.filter(m => m.title.toLowerCase().includes(values.title.toLowerCase()));
+    }
   }
 
   private formBuilder = inject(FormBuilder);
