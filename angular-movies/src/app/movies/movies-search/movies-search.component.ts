@@ -21,13 +21,15 @@ export class MoviesSearchComponent implements OnInit {
   ngOnInit(): void {
     this.form.valueChanges.subscribe(values => {
       this.movies = this.moviesOriginal;
+      this.filterMovies(values as MoviesSearchDTO);
       //console.log(values);
     });
   }
 
   filterMovies(values: MoviesSearchDTO) {
     if (values.title) {
-      this.movies = this.movies.filter(m => m.title.toLowerCase().includes(values.title.toLowerCase()));
+      this.movies = this.movies.filter(movie => movie.title.indexOf(values.title) !== -1);
+      //this.movies = this.movies.filter(m => m.title.toLowerCase().includes(values.title.toLowerCase()));
     }
   }
 
