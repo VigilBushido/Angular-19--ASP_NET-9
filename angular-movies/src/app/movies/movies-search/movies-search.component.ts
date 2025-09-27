@@ -31,6 +31,19 @@ export class MoviesSearchComponent implements OnInit {
       this.movies = this.movies.filter(movie => movie.title.indexOf(values.title) !== -1);
       //this.movies = this.movies.filter(m => m.title.toLowerCase().includes(values.title.toLowerCase()));
     }
+
+    if (values.genreId) {
+      this.movies = this.movies.filter(movie => movie.genres.indexOf(values.genreId) !== -1);
+    }
+
+    if (values.upcomingReleases) {
+      this.movies = this.movies.filter(movie => movie.upcomingRelease);
+    }
+
+    if (values.inTheaters) {
+      this.movies = this.movies.filter(movie => movie.inTheaters);
+    }
+
   }
 
   private formBuilder = inject(FormBuilder);
