@@ -9,6 +9,7 @@ import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 import { NzButtonComponent } from 'ng-zorro-antd/button';
 import { MoviesListComponent } from '../movies-list/movies-list.component';
 import { MoviesSearchDTO } from './movies-search.models';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movies-search',
@@ -18,12 +19,30 @@ import { MoviesSearchDTO } from './movies-search.models';
 })
 export class MoviesSearchComponent implements OnInit {
 
+  activatedRoute = inject(ActivatedRoute);
+
   ngOnInit(): void {
+    this.readValuesFromURL();
+    this.filterMovies(this.form.value as MoviesSearchDTO); // read values from URL and populate the form
     this.form.valueChanges.subscribe(values => {
       this.movies = this.moviesOriginal;
       this.filterMovies(values as MoviesSearchDTO);
       //console.log(values);
     });
+  }
+
+  readValuesFromURL() {
+    // read values from URL and populate the form
+    this.activatedRoute.queryParams.subscribe((params: any) => {
+      let obj: any = {};
+
+      if (params.title) {
+        obj.title = params.title;
+      }
+
+      this.form.patchValue(obj);
+    });
+
   }
 
   filterMovies(values: MoviesSearchDTO) {
