@@ -40,6 +40,18 @@ export class MoviesSearchComponent implements OnInit {
         obj.title = params.title;
       }
 
+      if (params.genreId) {
+        obj.genreId = Number(params.genreId);
+      }
+
+      if (params.upcomingReleases) {
+        obj.upcomingReleases = params.upcomingReleases === 'true';
+      }
+
+      if (params.inTheaters) {
+        obj.inTheaters = params.inTheaters === 'true';
+      }
+
       this.form.patchValue(obj);
     });
 
