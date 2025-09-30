@@ -10,6 +10,7 @@ import { NzButtonComponent } from 'ng-zorro-antd/button';
 import { MoviesListComponent } from '../movies-list/movies-list.component';
 import { MoviesSearchDTO } from './movies-search.models';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-movies-search',
@@ -20,6 +21,7 @@ import { ActivatedRoute } from '@angular/router';
 export class MoviesSearchComponent implements OnInit {
 
   activatedRoute = inject(ActivatedRoute);
+  location = inject(Location);
 
   ngOnInit(): void {
     this.readValuesFromURL();
@@ -27,6 +29,7 @@ export class MoviesSearchComponent implements OnInit {
     this.form.valueChanges.subscribe(values => {
       this.movies = this.moviesOriginal;
       this.filterMovies(values as MoviesSearchDTO);
+      this.writeParamsToURL();
       //console.log(values);
     });
   }
@@ -55,6 +58,28 @@ export class MoviesSearchComponent implements OnInit {
       this.form.patchValue(obj);
     });
 
+  }
+
+  writeParamsToURL() {
+    let queryStrings = [];
+
+    const valuesOfForm = this.form.value as MoviesSearchDTO;
+
+    if (valuesOfForm.title) {
+      queryStrings.push(`title=${encodeURIComponent(valuesOfForm.title)}`);
+    }
+    if (valuesOfForm.genreId !== 0) {
+      queryStrings.push(`genreId=${valuesOfForm.genreId}`);
+    }
+    if (valuesOfForm.upcomingReleases) {
+      queryStrings.push(`upcomingReleases=${valuesOfForm.upcomingReleases}`);
+    }
+    if (valuesOfForm.inTheaters) {
+      queryStrings.push(`inTheaters=${valuesOfForm.inTheaters}`);
+    }
+
+    //window.location.search = queryStrings.join('&');
+    this.location.replaceState('movies/search', queryStrings.join('&'));
   }
 
   filterMovies(values: MoviesSearchDTO) {
