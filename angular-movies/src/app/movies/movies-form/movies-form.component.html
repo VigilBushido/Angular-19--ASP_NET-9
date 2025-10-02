@@ -1,1 +1,32 @@
-<p>movies-form works!</p>
+<form nz-form [formGroup]="form" (submit)="saveChanges()">
+    <nz-form-item>
+        <nz-form-label nzFor="name" [nzSpan]="7" nzRequired>Movie Name</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating...">
+            <input id="name" nz-input formControlName="name" autocomplete="name"
+                placeholder="Enter in a new Movie here ..." />
+            <ng-template #userErrorMovieMissing let-control>
+                @if (control.errors?.['required']) {
+                Please input a movie name!
+                }
+                @if (control.errors?.['duplicated']) {
+                The movie is redundant!
+                }
+                @if (control.errors?.['firstLetterShouldBeUppercase']){
+                The first letter has to be upper case!
+                }
+            </ng-template>
+        </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+        <nz-form-label For="dateOfBirth" [nzSpan]="7" nzRequired>Date ofBirth</nz-form-label>
+        <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..."
+            [nzErrorTip]="getErrorMessagesForDateOfBirth()">
+            <nz-date-picker nzFormat="yyyy-MM-dd" formControlName="dateOfBirth" #datePickerInput
+                (nzOnChange)="onDateSelect($event)"></nz-date-picker>
+            <!-- <nz-date-picker id="dateOfBirth" [nzPlaceHolder]="Select a date"
+            (ngModelChange)="onDateSelect($event)" nzInline [nzOpen]="isDatePickerOpen"
+            (nzOpenChange)="nzDisableDatePicker($event)"></nz-date-picker> -->
+        </nz-form-control>
+    </nz-form-item>
+</form>
