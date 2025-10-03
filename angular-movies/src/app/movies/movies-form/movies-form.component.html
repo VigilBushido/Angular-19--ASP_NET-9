@@ -19,9 +19,9 @@
     </nz-form-item>
 
     <nz-form-item>
-        <nz-form-label For="dateOfBirth" [nzSpan]="7" nzRequired>Date ofBirth</nz-form-label>
+        <nz-form-label For="dateOfBirth" [nzSpan]="7" nzRequired>Release Date</nz-form-label>
         <nz-form-control [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..."
-            [nzErrorTip]="getErrorMessagesForDateOfBirth()">
+            [nzErrorTip]="getErrorMessagesForReleaseDate()">
             <nz-date-picker nzFormat="yyyy-MM-dd" formControlName="dateOfBirth" #datePickerInput
                 (nzOnChange)="onDateSelect($event)"></nz-date-picker>
             <!-- <nz-date-picker id="dateOfBirth" [nzPlaceHolder]="Select a date"

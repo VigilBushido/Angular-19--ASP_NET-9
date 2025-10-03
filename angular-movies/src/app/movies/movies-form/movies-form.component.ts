@@ -62,7 +62,7 @@ export class MoviesFormComponent implements OnInit {
     });
   }
 
-  getErrorMessagesForDateOfBirth(): string {
+  getErrorMessagesForReleaseDate(): string {
     let field = this.form.controls.releaseDate;
 
     if (field.hasError('required')) {
