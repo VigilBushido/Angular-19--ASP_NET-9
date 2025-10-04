@@ -3,7 +3,7 @@ export interface MovieDTO {
     title: string;
     releaseDate: Date;
     trailer: string;
-    poster?: File;
+    poster?: string;
 }
 
 export interface MovieCreationDTO {

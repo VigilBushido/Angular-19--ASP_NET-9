@@ -1,6 +1,7 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MovieCreationDTO, MovieDTO } from '../movies.models';
 import { FormBuilder, FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzFormModule } from 'ng-zorro-antd/form';
@@ -10,7 +11,7 @@ import { InputImgComponent } from '../../shared/components/input-img/input-img.c
 
 @Component({
   selector: 'app-movies-form',
-  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzDatePickerModule, FormsModule, InputImgComponent],
+  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzDatePickerModule, FormsModule, InputImgComponent, RouterLink],
   templateUrl: './movies-form.component.html',
   styleUrl: './movies-form.component.css'
 })
@@ -46,13 +47,18 @@ export class MoviesFormComponent implements OnInit {
   form = this.formBuilder.group({
     title: ['', { validators: [Validators.required] }],
     releaseDate: new FormControl<Date | null>(null),
-    trailer: '',
-    poster: new FormControl<File | null>(null)
+    trailer: [''],
+    poster: new FormControl<File | string | null>(null)
   });
 
   ngOnInit(): void {
     if (this.model !== undefined) {
-      this.form.patchValue(this.model);
+      this.form.patchValue({
+        title: this.model.title,
+        releaseDate: this.model.releaseDate,
+        trailer: this.model.trailer,
+        poster: this.model.poster || null
+      });
     }
 
     // Listen to form control value changes
@@ -81,14 +87,14 @@ export class MoviesFormComponent implements OnInit {
   }
 
   saveChanges() {
-    const movie = this.form.value as MovieCreationDTO;
+    const formValue = this.form.value;
+    const movie: MovieCreationDTO = {
+      title: formValue.title || '',
+      releaseDate: formValue.releaseDate ? new Date(formValue.releaseDate) : new Date(),
+      trailer: formValue.trailer || '',
+      poster: formValue.poster instanceof File ? formValue.poster : undefined
+    };
 
-    if (movie.releaseDate) {
-      movie.releaseDate = new Date(movie.releaseDate);
-    }
-    if (typeof movie.poster === 'string') {
-      movie.poster = undefined;
-    }
     this.postForm.emit(movie);
   }
 
