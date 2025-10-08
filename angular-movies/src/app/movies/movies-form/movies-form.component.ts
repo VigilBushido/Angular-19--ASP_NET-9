@@ -8,10 +8,12 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { InputImgComponent } from '../../shared/components/input-img/input-img.component';
+import { MultipleSelectorDTO } from '../../shared/components/multiple-selector/MultipleSelectorDTO';
+import { MultipleSelectorComponent } from "../../shared/components/multiple-selector/multiple-selector.component";
 
 @Component({
   selector: 'app-movies-form',
-  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzDatePickerModule, FormsModule, InputImgComponent, RouterLink],
+  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzDatePickerModule, FormsModule, InputImgComponent, RouterLink, MultipleSelectorComponent],
   templateUrl: './movies-form.component.html',
   styleUrl: './movies-form.component.css'
 })
@@ -22,6 +24,12 @@ export class MoviesFormComponent implements OnInit {
 
   @Output()
   postForm = new EventEmitter<MovieCreationDTO>();
+
+  @Input({ required: true })
+  selectedGenres!: MultipleSelectorDTO[];
+
+  @Input({ required: true })
+  nonSelectedGenres!: MultipleSelectorDTO[];
 
   @ViewChild('datePickerInput') datePickerInput: any;
 
@@ -94,6 +102,13 @@ export class MoviesFormComponent implements OnInit {
       trailer: formValue.trailer || '',
       poster: formValue.poster instanceof File ? formValue.poster : undefined
     };
+
+    if (typeof movie.poster === 'string') {
+      movie.poster = undefined;
+    }
+
+    const genresIds = this.selectedGenres.map(val => val.key);
+    movie.genresIds = genresIds;
 
     this.postForm.emit(movie);
   }

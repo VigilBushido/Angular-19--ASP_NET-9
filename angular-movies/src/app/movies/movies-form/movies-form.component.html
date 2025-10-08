@@ -47,6 +47,10 @@
         [imageURL]="(model && typeof model.poster === 'string') ? model.poster : undefined"
         (selectedFile)="handleFileSelection($event)"></app-input-img>
 
+    <h4>Select the Genres:</h4>
+
+    <app-multiple-selector></app-multiple-selector>
+
     <div class="buttons-container">
         <button [disabled]="form.invalid" nz-button nzType="primary" nzShape="round" type="submit">
             <nz-icon nzType="save" nzTheme="outline" />
