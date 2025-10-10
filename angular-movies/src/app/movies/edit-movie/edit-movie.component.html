@@ -1,1 +1,6 @@
 The id of the movie is {{id}}
+
+<h2>Edit Movie</h2>
+
+<app-movies-form [selectedGenres]="selectedGenres" [nonSelectedGenres]="nonSelectedGenres"
+    (postForm)="saveChanges($event)"></app-movies-form>
