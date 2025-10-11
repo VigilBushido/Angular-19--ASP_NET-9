@@ -49,7 +49,7 @@
 
     <h4>Select the Genres:</h4>
 
-    <app-multiple-selector></app-multiple-selector>
+    <app-multiple-selector [selected]="selectedGenres" [nonSelected]="nonSelectedGenres"></app-multiple-selector>
 
     <div class="buttons-container">
         <button [disabled]="form.invalid" nz-button nzType="primary" nzShape="round" type="submit">
