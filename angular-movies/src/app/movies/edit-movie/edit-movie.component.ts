@@ -18,7 +18,6 @@ export class EditMovieComponent {
 
   nonSelectedGenres: MultipleSelectorDTO[] = [
     { key: 1, description: 'Action' },
-    { key: 2, description: 'Comedy' },
     { key: 3, description: 'Drama' }
   ];
 

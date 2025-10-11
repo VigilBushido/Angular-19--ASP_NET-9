@@ -10,29 +10,29 @@ import { MultipleSelectorDTO } from './MultipleSelectorDTO';
 export class MultipleSelectorComponent {
 
   @Input()
-  selectedElements: MultipleSelectorDTO[] = [];
+  selected: MultipleSelectorDTO[] = [];
 
   @Input()
-  nonSelectedElements: MultipleSelectorDTO[] = [];
+  nonSelected: MultipleSelectorDTO[] = [];
 
   select(element: MultipleSelectorDTO, index: number) {
-    this.selectedElements.push(element);
-    this.nonSelectedElements.splice(index, 1);
+    this.selected.push(element);
+    this.nonSelected.splice(index, 1);
   }
 
   deselect(element: MultipleSelectorDTO, index: number) {
-    this.nonSelectedElements.push(element);
-    this.selectedElements.splice(index, 1);
+    this.nonSelected.push(element);
+    this.selected.splice(index, 1);
   }
 
   selectAll() {
-    this.selectedElements.push(...this.nonSelectedElements);
-    this.nonSelectedElements = [];
+    this.selected.push(...this.nonSelected);
+    this.nonSelected = [];
   }
 
   deselectAll() {
-    this.nonSelectedElements.push(...this.selectedElements);
-    this.selectedElements = [];
+    this.nonSelected.push(...this.selected);
+    this.selected = [];
   }
 
 }
