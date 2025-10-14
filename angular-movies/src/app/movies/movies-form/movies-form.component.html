@@ -51,6 +51,10 @@
 
     <app-multiple-selector [selected]="selectedGenres" [nonSelected]="nonSelectedGenres"></app-multiple-selector>
 
+    <h4>Select the Theaters:</h4>
+
+    <app-multiple-selector [selected]="selectedTheaters" [nonSelected]="nonSelectedTheaters"></app-multiple-selector>
+
     <div class="buttons-container">
         <button [disabled]="form.invalid" nz-button nzType="primary" nzShape="round" type="submit">
             <nz-icon nzType="save" nzTheme="outline" />
