@@ -10,10 +10,11 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { InputImgComponent } from '../../shared/components/input-img/input-img.component';
 import { MultipleSelectorDTO } from '../../shared/components/multiple-selector/MultipleSelectorDTO';
 import { MultipleSelectorComponent } from "../../shared/components/multiple-selector/multiple-selector.component";
+import { ActorsAutocompleteComponent } from "../../actors/actors-autocomplete/actors-autocomplete.component";
 
 @Component({
   selector: 'app-movies-form',
-  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzDatePickerModule, FormsModule, InputImgComponent, RouterLink, MultipleSelectorComponent],
+  imports: [NzIconModule, NzButtonModule, ReactiveFormsModule, NzFormModule, NzInputModule, NzDatePickerModule, FormsModule, InputImgComponent, RouterLink, MultipleSelectorComponent, ActorsAutocompleteComponent],
   templateUrl: './movies-form.component.html',
   styleUrl: './movies-form.component.css'
 })

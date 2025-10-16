@@ -55,6 +55,10 @@
 
     <app-multiple-selector [selected]="selectedTheaters" [nonSelected]="nonSelectedTheaters"></app-multiple-selector>
 
+    <h4>Select the Actors:</h4>
+    <app-actors-autocomplete></app-actors-autocomplete>
+
+
     <div class="buttons-container">
         <button [disabled]="form.invalid" nz-button nzType="primary" nzShape="round" type="submit">
             <nz-icon nzType="save" nzTheme="outline" />
