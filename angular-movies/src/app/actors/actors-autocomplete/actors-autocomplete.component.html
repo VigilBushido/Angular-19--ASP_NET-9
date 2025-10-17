@@ -6,7 +6,9 @@
 
     <nz-autocomplete #auto>
         @for (actor of actors; track $index) {
-        <nz-auto-option [nzValue]="actor.name">{{ actor.name }}</nz-auto-option>
+        <nz-auto-option [nzValue]="actor.name">
+            <img [src]="actor.picture" width="50" height="50" />
+            {{ actor.name }}</nz-auto-option>
         }
     </nz-autocomplete>
 </div>
