@@ -1,1 +1,7 @@
-<p>actors-autocomplete works!</p>
+<h2>actors-autocomplete</h2>
+
+<div class="actors-autocomplete-container">
+    <input placeholder="input here" nz-input [(ngModel)]="inputValue" (input)="onInput($event)"
+        [nzAutocomplete]="auto" />
+    <nz-autocomplete [nzDataSource]="options" nzBackfill #auto></nz-autocomplete>
+</div>

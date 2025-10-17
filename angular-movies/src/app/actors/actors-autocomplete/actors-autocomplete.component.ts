@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { ActorAutoCompleteDTO } from '../actors.model';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
+import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 @Component({
   selector: 'app-actors-autocomplete',
-  imports: [],
+  imports: [FormsModule, NzAutocompleteModule, NzInputModule],
   templateUrl: './actors-autocomplete.component.html',
   styleUrl: './actors-autocomplete.component.css'
 })
@@ -20,6 +22,14 @@ export class ActorsAutocompleteComponent {
   actorsSelected: ActorAutoCompleteDTO[] = [];
 
   control = new FormControl();
+
+  inputValue?: string;
+  options: string[] = [];
+
+  onInput(event: Event): void {
+    const value = (event.target as HTMLInputElement).value;
+    this.options = value ? [value, value + value, value + value + value] : [];
+  }
 
   ngOnInit(): void {
     this.control.valueChanges.subscribe(value => {
